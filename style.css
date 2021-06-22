@@ -10,6 +10,7 @@ body {
   align-items: center;
   min-height: 100vh;
   margin: 0;
+  background: #fff;
 }
 
 .avatar {
@@ -25,29 +26,29 @@ body {
 .avatar::before,
 .avatar::after {
   --scale: 0;
-  --tooltips-color: #333;
-  --arrow-size: 20px;
-  --translate-y: -100%;
+  --tooltip-color: #333;
+  --arrow-size: 10px;
 
   position: absolute;
-  top: -6px;
+  top: -0.25rem;
   left: 50%;
   transform: translateX(-50%) translateY(var(--translate-y, 0))
     scale(var(--scale));
-  transition: 0.15s transform;
+  transition: 0.25s transform;
   transform-origin: bottom center;
 }
 
 .avatar::before {
---translate-y: calc(100% - var(--arrow-size))
+  --translate-y: calc(-100% - var(--arrow-size));
 
-  content: attr(data-tooltip);
+  background: black;
   color: white;
   padding: 0.5rem;
-  background: var(--tooltips-color);
-  border-radius: 0.3rem;
   width: max-content;
   max-width: 100%;
+  content: attr(data-tooltip);
+  background: var(--tooltip-color);
+  border-radius: 0.3rem;
   text-align: center;
 }
 
@@ -55,11 +56,11 @@ body {
 .avatar:hover::after {
   --scale: 1;
 }
-
 .avatar::after {
---translate-y: calc(-1 * var(var(--arrow-size)))
+  --translate-y: calc(-1 * var(--arrow-size));
 
   content: '';
   border: var(--arrow-size) solid transparent;
-  border-top-color: var(--tooltips-color);
+  border-top-color: var(--tooltip-color);
+  transform-origin: top center;
 }
