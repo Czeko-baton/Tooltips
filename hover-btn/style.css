@@ -1,0 +1,21 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.btn {
+  background: var(--background-color);
+  padding: 0.5em 1em;
+  color: #222;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  position: relative;
+  font-size: 30px;
+  margin: 20px;
+
+  --background-color: #cecbcb;
+}
